@@ -9,7 +9,7 @@ const router = express.Router();
 // add product
 router.post(
   "/add-product",
-  auth("administrator"),
+  auth("manager"),
   validateRequest(UserValidation.productValidationSchema),
   ProductControllers.addProduct
 );
@@ -17,7 +17,7 @@ router.post(
 // edit product
 router.put(
   "/edit-product/:id",
-  auth("administrator"),
+  auth("manager"),
   validateRequest(UserValidation.productValidationSchema),
   ProductControllers.editProduct
 );
@@ -25,32 +25,32 @@ router.put(
 // get product
 router.get(
   "/get-products",
-  auth("administrator"),
+  auth("seller", "manager"),
   ProductControllers.getProduct
 );
 
 // delete single product
 router.delete(
   "/single-delete/:id",
-  auth("administrator"),
+  auth("manager"),
   ProductControllers.singleDelete
 );
 
 // delete multiple product
 router.delete(
   "/multiple-delete",
-  auth("administrator"),
+  auth("manager"),
   ProductControllers.multipleDelete
 );
 
 // get single product
 router.get(
   "/get-product/:id",
-  auth("administrator"),
+  auth("seller", "manager"),
   ProductControllers.getSingleProduct
 );
 
 // sell product
-router.post("/sell/:id", auth("administrator"), ProductControllers.sellProduct);
+router.post("/sell/:id", auth("seller"), ProductControllers.sellProduct);
 
 export const productRoutes = router;
