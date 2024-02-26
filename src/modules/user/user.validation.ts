@@ -19,6 +19,10 @@ const userValidationSchema = z.object({
       invalid_type_error: "Password must be string",
     })
     .max(20, { message: "Password can not be more than 20 characters" }),
+  role: z.string({
+    required_error: "Role  Required",
+    invalid_type_error: "Role must be string",
+  }),
 });
 
 const userLoginValidationSchema = z.object({
