@@ -11,10 +11,23 @@ const salesHistorySchema = new Schema<TSalesHistory>({
   buyerName: {
     type: String,
   },
+  seller: {
+    type: String,
+  },
   totalPrice: {
     type: Number,
   },
+  finalPrice: {
+    type: Number,
+  },
+  discount: {
+    type: Number,
+
+  },
   dateOfSelling: {
+    type: String,
+  },
+  coupon: {
     type: String,
   },
 });

@@ -96,9 +96,12 @@ const sellProductIntoDB = async (
     buyerName: string;
     date: string;
     quantity: number;
+    seller: string;
+    coupon?: string | null;
+    discount?: number;
   }
 ) => {
-  const { buyerName, date, quantity } = data;
+  const { buyerName, date, quantity, coupon = null, discount = 0, seller } = data;
 
   // find the product
   const product = await Product.findById(id);
@@ -125,8 +128,12 @@ const sellProductIntoDB = async (
     productName: product.productName,
     quantity: quantity,
     buyerName: buyerName,
+    seller: seller,
     totalPrice: Number(product.productPrice) * Number(quantity),
     dateOfSelling: date,
+    discount: discount,
+    finalPrice: ((Number(product.productPrice) * Number(quantity)) - discount)<0 ? 0 : (Number(product.productPrice) * Number(quantity)) - discount ,
+    coupon: coupon,
   };
 
   // save selling history into db
