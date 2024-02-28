@@ -7,6 +7,14 @@ const getSalesHistory = async () => {
   return result;
 };
 
+// get all sales history
+const getSingleSaleHistory = async (id: string) => {
+  const result = await SalesHistory.findById(id);
+
+  return result;
+};
+
 export const historyServices = {
   getSalesHistory,
+  getSingleSaleHistory
 };
