@@ -1,4 +1,4 @@
-# Gift Management Server
+# Gift Management Client
 
 ## Live Demo
 
