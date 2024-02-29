@@ -5,7 +5,11 @@ const router = Router();
 
 // create coupon route
 router.post("/create-coupon", couponControllers.createCoupon);
+
+// get all coupon
+router.get("/coupons", couponControllers.getAllCoupons);
 // get coupon
+
 router.get("/coupon/:id", couponControllers.getCoupon);
 
 export const couponRoutes = router;

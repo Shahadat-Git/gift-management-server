@@ -13,6 +13,17 @@ const createCoupon = catchAsync(async (req, res) => {
   });
 });
 
+// get  all coupon
+const getAllCoupons = catchAsync(async (req, res) => {
+  const result = await couponServices.getAllCouponsFromDB();
+
+  res.status(200).json({
+    success: true,
+    message: "Coupons Successfully Fetched",
+    data: result,
+  });
+});
+
 // get coupon
 const getCoupon = catchAsync(async (req, res) => {
   const id = req?.params?.id;
@@ -27,5 +38,6 @@ const getCoupon = catchAsync(async (req, res) => {
 
 export const couponControllers = {
   createCoupon,
+  getAllCoupons,
   getCoupon,
 };

@@ -101,7 +101,14 @@ const sellProductIntoDB = async (
     discount?: number;
   }
 ) => {
-  const { buyerName, date, quantity, coupon = null, discount = 0, seller } = data;
+  const {
+    buyerName,
+    date,
+    quantity,
+    coupon = null,
+    discount = 0,
+    seller,
+  } = data;
 
   // find the product
   const product = await Product.findById(id);
@@ -132,19 +139,23 @@ const sellProductIntoDB = async (
     totalPrice: Number(product.productPrice) * Number(quantity),
     dateOfSelling: date,
     discount: discount,
-    finalPrice: ((Number(product.productPrice) * Number(quantity)) - discount)<0 ? 0 : (Number(product.productPrice) * Number(quantity)) - discount ,
+    finalPrice:
+      Number(product.productPrice) * Number(quantity) - discount < 0
+        ? 0
+        : Number(product.productPrice) * Number(quantity) - discount,
     coupon: coupon,
   };
-
-  // save selling history into db
-  if (updatedProduct) {
-    await SalesHistory.create(sellingInfo);
-  }
 
   // delete product if quantity is 0
   if (product?.productQuantity === 0) {
     await Product.findByIdAndDelete(id);
     return;
+  }
+
+  // save selling history into db
+  if (updatedProduct) {
+    const result = await SalesHistory.create(sellingInfo);
+    return { updatedProduct, result };
   }
 
   return updatedProduct;

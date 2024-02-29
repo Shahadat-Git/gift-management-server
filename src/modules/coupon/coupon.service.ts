@@ -20,7 +20,18 @@ const getCouponFromDB = async (id: string) => {
   return result;
 };
 
+// get copon from db
+const getAllCouponsFromDB = async () => {
+  const result = await Coupon.find();
+
+  if (!result) {
+    throw new AppError(httpStatus.NOT_FOUND, "Coupon not found!");
+  }
+  return result;
+};
+
 export const couponServices = {
   addCouponIntoDB,
   getCouponFromDB,
+  getAllCouponsFromDB,
 };
