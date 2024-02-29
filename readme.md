@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-[Live Link](https://gift-management.vercel.app)
+[Live Link](https://gift-inventory.vercel.app)
 
 ## Overview
 
@@ -13,14 +13,14 @@ This repository features a Express.js application built with Mongoose and TypeSc
 1. **Get the code:**
 
    ```bash
-   git clone https://github.com/Porgramming-Hero-web-course/l2b2-full-stack-a5-server-side-Shahadat-Git.git
+   git clone https://github.com/Porgramming-Hero-web-course/l2-b2-assignment-6-backend-Shahadat-Git.git
 
    ```
 
 2. **Go to the project directory:**
 
    ```bash
-   cd l2b2-full-stack-a5-server-side-Shahadat-Git
+   cd l2-b2-assignment-6-backend-Shahadat-Git
    ```
 
 3. **Install dependencies:**
