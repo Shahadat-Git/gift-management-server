@@ -13,14 +13,14 @@ This repository features a Express.js application built with Mongoose and TypeSc
 1. **Get the code:**
 
    ```bash
-   git clone https://github.com/Porgramming-Hero-web-course/l2-b2-assignment-6-backend-Shahadat-Git.git
+   git clone https://github.com/Shahadat-Git/gift-management-server
 
    ```
 
 2. **Go to the project directory:**
 
    ```bash
-   cd l2-b2-assignment-6-backend-Shahadat-Git
+   cd gift-management-server
    ```
 
 3. **Install dependencies:**
